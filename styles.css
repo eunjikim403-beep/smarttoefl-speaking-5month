@@ -1,0 +1,407 @@
+:root {
+  --teal: #117c80;
+  --dark: #064f52;
+  --soft: #e8f6f5;
+  --line: #d7e7e6;
+  --text: #17282b;
+  --muted: #647376;
+  --bg: #f4faf9;
+  --panel: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Malgun Gothic", "Segoe UI", Arial, sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  background: var(--dark);
+  color: #fff;
+}
+
+.brand {
+  min-width: 230px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  font-weight: 900;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.top-actions {
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.status {
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.top-button {
+  min-width: 78px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.top-button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(360px, 52%) minmax(360px, 48%);
+  height: calc(100vh - 72px);
+}
+
+.prompt-panel,
+.work-panel {
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  padding: 28px 34px 60px;
+}
+
+.prompt-panel {
+  border-right: 1px solid var(--line);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  color: var(--dark);
+}
+
+h1 {
+  font-size: 25px;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  line-height: 1.35;
+}
+
+.prompt-text {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.card,
+.recording-box,
+.timer-card,
+.item-row {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 8px 22px rgba(9, 91, 93, 0.06);
+}
+
+.card {
+  padding: 22px;
+}
+
+.screen {
+  display: none;
+  text-align: center;
+  padding: 24px 10px;
+}
+
+.screen.show {
+  display: block;
+}
+
+.quiz.hide,
+.hidden {
+  display: none !important;
+}
+
+.screen p {
+  max-width: 560px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.practice-menu {
+  margin: 20px auto 0;
+  max-width: 780px;
+  text-align: left;
+}
+
+.menu-title {
+  margin: 0 0 10px;
+  color: var(--dark);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.menu-button {
+  min-height: 64px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fbfdfd;
+  color: var(--text);
+  padding: 10px 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-button:hover,
+.item-row.active {
+  border-color: var(--teal);
+  background: var(--soft);
+}
+
+.menu-button strong,
+.menu-button span {
+  display: block;
+}
+
+.menu-button strong {
+  color: var(--dark);
+  font-size: 14px;
+}
+
+.menu-button span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.qno {
+  color: var(--teal);
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.audio-note {
+  padding: 10px 12px;
+  border-radius: 7px;
+  background: var(--soft);
+  color: var(--dark);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+audio {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.timer-card {
+  margin-top: 16px;
+  padding: 18px;
+  text-align: center;
+}
+
+.timer-card span {
+  display: block;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.timer-card strong {
+  display: block;
+  margin: 8px 0 14px;
+  color: var(--dark);
+  font-size: 44px;
+}
+
+.bar {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--soft);
+}
+
+#barFill {
+  width: 0%;
+  height: 100%;
+  background: var(--teal);
+  transition: width 0.2s linear;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.action {
+  min-width: 96px;
+  min-height: 40px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.secondary {
+  background: #edf5f4;
+  color: var(--dark);
+  border: 1px solid var(--line);
+}
+
+.item-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.item-row {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.item-row button {
+  min-width: 84px;
+}
+
+.recording-box {
+  margin-top: 16px;
+  padding: 16px;
+  text-align: left;
+}
+
+.recording-item {
+  display: grid;
+  grid-template-columns: minmax(70px, auto) 1fr;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.question-list,
+.finish-list {
+  text-align: left;
+  line-height: 1.6;
+}
+
+.question-list li {
+  padding: 8px 0;
+}
+
+@media (max-width: 860px) {
+  body {
+    height: auto;
+    overflow: auto;
+  }
+
+  header {
+    height: auto;
+    min-height: 72px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 14px 18px;
+  }
+
+  .brand,
+  .top-actions {
+    min-width: 0;
+  }
+
+  .title {
+    position: static;
+    transform: none;
+    font-size: 22px;
+  }
+
+  .top-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .layout {
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .prompt-panel {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .prompt-panel,
+  .work-panel {
+    height: auto;
+    overflow: visible;
+    padding: 22px 18px;
+  }
+
+  .controls {
+    display: grid;
+  }
+}
